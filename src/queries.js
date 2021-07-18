@@ -1,4 +1,4 @@
-const getCamerasQuery = "SELECT * FROM aof-camera-database";
+const getCamerasQuery = "SELECT * FROM ddr8f9r4oj9g7b";
 const getCameraByIdQuery = "select * from aof_cameras where id = $1"; 
 const checkModelExists = "SELECT cam from aof_cameras cam WHERE cam.model = $1";
 const addCamera = 
