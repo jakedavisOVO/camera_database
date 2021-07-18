@@ -3,6 +3,9 @@ const qs = require('qs')
 
 postCameras = async () => {
 
+
+    //TODO: abstract out these values
+
     body = JSON.stringify({
         "brand": "olympus",
         "model": "am-100",
