@@ -37,13 +37,12 @@ const addCamera = (req, res) => {
     pool.query(queries.checkModelExists, [model], (error, results) => {
         if (results.rows.length) {
             res.send(`Camera ${model} already exists`)
-            console.log(`Camera Model ${model} not added as it already exists`)
+        } else if (model == null){
+            res.send('No data to post')
         } else {
-
         pool.query(queries.addCamera, [brand, model, aperture, focal_range, iso, batteries, self_timer, flash, rare], (error, results)=>{
             if (error) throw error;
             res.status(201).send(`Camera model: ${model} added successfully`)
-            console.log(`Camera Model: ${model} added successfully`)
         })
 
     }
