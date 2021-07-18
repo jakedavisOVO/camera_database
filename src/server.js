@@ -11,7 +11,7 @@ app.get('/', (req, res)=>{
 
 app.use('/api/v1/cameras',cameraRoutes);
 
-app.listen(PORT, ()=>{
+app.listen(process.env.PORT || PORT, ()=>{
     console.log(`Server listening on port http://localhost:${PORT}`) 
 })
 
