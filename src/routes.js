@@ -16,5 +16,17 @@ router.get("/focal_range/:focal_range", controller.getCameraByFocalRange)
 router.get("/self_timer/:self_timer", controller.getCameraBySelfTimer)
 router.get("/flash/:flash", controller.getCameraByFlash)
 router.get("/rare/:rare", controller.getCameraByRare)
+router.get('/db', async (req, res) => {
+    try {
+      const client = await pool.connect();
+      const result = await client.query('SELECT * FROM aof_cameras');
+      const results = { 'results': (result) ? result.rows : null};
+      res.render('pages/db', results );
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
 
 module.exports = router;
